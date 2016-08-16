@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cl.max.mybatis.services.ActorMapper">    
+
+	<resultMap 
+		id="ActorMap"
+		type="cl.max.mybatis.domain.Actor" >
+		<id property="id" column="actor_id"/>
+		<result property="firstName" column="first_name"/>
+		<result property="lastName" column="last_name"/>
+		<result property="lastUpdate" column="last_update"/>
+	</resultMap>
+	    
+    <select id="list" resultMap="ActorMap"> 	
+    	SELECT actor_id, first_name, last_name, last_update
+    	from actor limit 2
+    </select>
+    <!-- 
+    <select id="get" 
+    	parameterType="int"
+    	resultMap="ExampleBeanMap">    	
+    	SELECT exam_id, exam_name, exam_numValue, exam_pastDate, exam_futureDate
+    	from EXAM
+    	where exam_id = #{id}
+    </select>        
+    
+    <insert id="insert" parameterType="com.latam.pax.iconeraca.domain.ExampleBean">
+		<selectKey keyProperty="id" resultType="Integer" order="BEFORE">
+			select EXAM_SEQ_ID.nextval from dual   		
+  		</selectKey>
+		insert into EXAM (exam_id, exam_name, exam_numValue, exam_pastDate, exam_futureDate) 
+		values (#{id}, #{name}, #{numValue}, #{pastDate}, #{futureDate})
+    </insert>
+
+    <update id="update" parameterType="com.latam.pax.iconeraca.domain.ExampleBean">
+		update EXAM set
+			exam_name = #{name}, 
+			exam_numValue = #{numValue},
+			exam_pastDate = #{pastDate},
+			exam_futureDate = #{futureDate}
+		where exam_id = #{id}
+    </update>
+    
+    <delete id="delete" parameterType="com.latam.pax.iconeraca.domain.ExampleBean">
+		delete from EXAM
+		where exam_id = #{id}
+    </delete>    
+  -->
+</mapper>
